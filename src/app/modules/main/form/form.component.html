@@ -1,0 +1,79 @@
+<div mat-dialog-title>
+  <h1>Employee Form</h1>
+</div>
+<form>
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>License Number</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="La 38-7085"
+          formControlName="license"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Vehicle Type</mat-label>
+        <mat-select disableRipple formControlName="vehicleType">
+          <mat-option value="1">Option 1</mat-option>
+          <mat-option value="2">Option 2</mat-option>
+          <mat-option value="3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Owner Name</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. Habibur Rahman"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Owner Phone</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. +8801728288363"
+          formControlName="phone"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Staus</mat-label>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">Vehicle In</mat-radio-button>
+          <mat-radio-button value="2">Vehicle Out</mat-radio-button>
+        </mat-radio-group>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Owner Phone</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. Multiplan Red crescent City, Road 4, Mirpur 1"
+          formControlName="address"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="datetime-local" placeholder="start date" />
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Website</mat-label>
+        <input matInput placeholder="Ex. Google" formControlName="website" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>

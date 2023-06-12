@@ -46,7 +46,7 @@ export class VehicleAddUpdateComponent implements OnInit {
         this._vehicleService
           .updateVehicle(this.data.id, this.empForm.value)
           .subscribe({
-            next: (val: any) => {
+            next: () => {
               this._coreService.openSnackBar('Vehicle detail updated!');
               this._dialogRef.close(true);
             },
@@ -56,7 +56,7 @@ export class VehicleAddUpdateComponent implements OnInit {
           });
       } else {
         this._vehicleService.addVehicle(this.empForm.value).subscribe({
-          next: (val: any) => {
+          next: () => {
             this._coreService.openSnackBar('Vehicle added successfully');
             this._dialogRef.close(true);
           },

@@ -16,5 +16,26 @@
   "profile": {
     "name": "typicode"
   },
-  "vehicleInfo": {}
+  "vehicle": [
+    {
+      "ownerName": "Hab",
+      "vehicleType": "MicroBus",
+      "licenseNo": "ss52xsswe",
+      "entry": "2001-12-02T18:00:00.000Z",
+      "status": "in",
+      "address": "Road1",
+      "parkingCharge": "10",
+      "id": 1
+    },
+    {
+      "ownerName": "sdfdsf",
+      "vehicleType": "Car",
+      "licenseNo": "sdf",
+      "entry": "2023-06-11T18:00:00.000Z",
+      "status": "in",
+      "address": "asd",
+      "parkingCharge": "10",
+      "id": 2
+    }
+  ]
 }

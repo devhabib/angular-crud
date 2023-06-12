@@ -1,0 +1,84 @@
+<div mat-dialog-title>
+  <h1>Vehicle Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>OwnerName</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. Technical"
+          formControlName="ownerName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Type</mat-label>
+        <mat-select formControlName="vehicleType">
+          <mat-option *ngFor="let val of vehicleNames" [value]="val"
+            >{{ val }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>licenseNo</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. 5sx4766xse"
+          formControlName="licenseNo"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Entry</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="entry" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="status">
+        <mat-label><b>status</b></mat-label>
+        <mat-radio-button value="in">In</mat-radio-button>
+        <mat-radio-button value="out">Out</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. Road4"
+          formControlName="address"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Parking Charge</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Ex. 112"
+          formControlName="parkingCharge"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ data ? "Update" : "Save" }}
+    </button>
+  </div>
+</form>

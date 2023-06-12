@@ -21,9 +21,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TableComponent } from './table/table.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, VehicleAddUpdateComponent],
+  declarations: [AppComponent, VehicleAddUpdateComponent, TableComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

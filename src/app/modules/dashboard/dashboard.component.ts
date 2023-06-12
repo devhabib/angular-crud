@@ -11,19 +11,16 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 })
 export class DashboardComponent implements OnInit {
   dataSource: any;
-  storedData: any;
-  totalVehiclesCount: number;
+  storedData: any[] = [];
+  totalVehiclesInParking: number = 0;
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  constructor(private _vehicleService: VehicleService) {
-    this.totalVehiclesCount = 0
-  }
+  constructor(private _vehicleService: VehicleService) { }
 
   ngOnInit(): void {
-    this.getVehicleInfo()
+    this.getVehicleInfo();
   }
-
 
   getVehicleInfo() {
     this._vehicleService.getVehicleInfo().subscribe({
@@ -31,21 +28,24 @@ export class DashboardComponent implements OnInit {
         this.dataSource = res;
         console.log(res);
         this.storedData = res;
+        this.calculateTotalVehiclesInParking();
       }
-
     });
   }
-  calculateTotalVehiclesCount() {
 
-    for (const data of this.storedData) {
-      const vehicleType = data.vehicleType;
-      if (vehicleType && vehicleType.trim() !== '') {
-        this.totalVehiclesCount++;
-      }
-    }
-
-    console.log(this.totalVehiclesCount);
+  calculateTotalVehiclesInParking() {
+    this.totalVehiclesInParking = this.storedData.filter((data: any) => data.status === 'in' && data.status !== '').length;
+    console.log(this.totalVehiclesInParking);
+    this.updateChartData();
   }
+
+  updateChartData() {
+    this.pieChartData.datasets[0].data = [this.totalVehiclesInParking, this.storedData.length - this.totalVehiclesInParking];
+    if (this.chart) {
+      this.chart.update();
+    }
+  }
+
   public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {
@@ -62,13 +62,14 @@ export class DashboardComponent implements OnInit {
       },
     }
   };
+
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'],
+    labels: ['Vehicles in Parking', 'Vehicles Outside Parking'],
     datasets: [{
-      data: [300, 500, 100]
+      data: [this.totalVehiclesInParking, this.storedData.length - this.totalVehiclesInParking]
     }]
   };
+
   public pieChartType: ChartType = 'pie';
   public pieChartPlugins = [DatalabelsPlugin];
-
 }

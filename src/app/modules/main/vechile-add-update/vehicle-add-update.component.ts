@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CoreService } from '../core/core.service';
-import { VehicleService } from '../services/vehicle.service';
+import { CoreService } from '../../../services/core/core.service';
+import { VehicleService } from '../../../services/vehicle.service';
 
 @Component({
   selector: 'app-vehicle-add-update',

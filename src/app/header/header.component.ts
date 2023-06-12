@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CoreService } from '../core/core.service';
+import { CoreService } from '../services/core/core.service';
 import { VehicleService } from '../services/vehicle.service';
-import { VehicleAddUpdateComponent } from '../vechile-add-update/vehicle-add-update.component';
+import { VehicleAddUpdateComponent } from '../modules/main/vechile-add-update/vehicle-add-update.component';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({

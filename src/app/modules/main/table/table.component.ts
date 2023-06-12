@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CoreService } from '../core/core.service';
-import { VehicleService } from '../services/vehicle.service';
+import { CoreService } from '../../../services/core/core.service';
+import { VehicleService } from '../../../services/vehicle.service';
 import { VehicleAddUpdateComponent } from '../vechile-add-update/vehicle-add-update.component';
 
 @Component({

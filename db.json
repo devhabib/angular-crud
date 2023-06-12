@@ -88,14 +88,14 @@
       "id": 7
     },
     {
-      "ownerName": "Habib2",
-      "vehicleType": "Truck",
-      "licenseNo": "44ss4456ss",
-      "entry": "2023-06-11T18:00:00.000Z",
-      "status": "in",
-      "address": "Unnamed Street",
-      "parkingCharge": "45",
-      "id": 8
+      "ownerName": "Habib",
+      "vehicleType": "",
+      "licenseNo": "",
+      "entry": "",
+      "status": "",
+      "address": "",
+      "parkingCharge": "",
+      "id": 9
     }
   ]
 }

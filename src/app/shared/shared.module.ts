@@ -16,7 +16,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -38,6 +40,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatGridListModule,
+
+    NgChartsModule
   ],
   exports: [
     MatToolbarModule,
@@ -56,6 +61,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatGridListModule,
+
+    NgChartsModule
   ]
 })
 export class SharedModule { }

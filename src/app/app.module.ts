@@ -24,6 +24,7 @@ import { TableComponent } from './modules/main/table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './modules/main/main.module';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -33,6 +34,7 @@ import { MainModule } from './modules/main/main.module';
     BrowserAnimationsModule,
     MainModule,
     SharedModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

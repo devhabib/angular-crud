@@ -1,0 +1,10 @@
+.chart {
+    &-wrapper {
+        background-color: #eee;
+        border-radius: 5px;
+    }
+    &-box {
+        max-width: 450px;
+        padding: 15px;
+    }
+}

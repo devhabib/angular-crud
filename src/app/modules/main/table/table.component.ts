@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -12,7 +12,7 @@ import { VehicleAddUpdateComponent } from '../vechile-add-update/vehicle-add-upd
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'ownerName',
@@ -36,7 +36,7 @@ export class TableComponent {
   ngOnInit(): void {
     this.getVehicleInfo();
   }
-  openAddEditEmpForm() {
+  openAddEditEmpForm(): void {
     const dialogRef = this._dialog.open(VehicleAddUpdateComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
@@ -47,7 +47,7 @@ export class TableComponent {
     });
   }
 
-  getVehicleInfo() {
+  getVehicleInfo(): void {
     this._vehicleService.getVehicleInfo().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
@@ -58,7 +58,7 @@ export class TableComponent {
     });
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -67,7 +67,7 @@ export class TableComponent {
     }
   }
 
-  deleteVehicle(id: number) {
+  deleteVehicle(id: number): void {
     this._vehicleService.deleteVehicle(id).subscribe({
       next: (res) => {
         this._coreService.openSnackBar('Vehicle deleted!', 'done');
@@ -77,7 +77,7 @@ export class TableComponent {
     });
   }
 
-  openEditForm(data: any) {
+  openEditForm(data: any): void {
     const dialogRef = this._dialog.open(VehicleAddUpdateComponent, {
       data,
     });
